@@ -1,4 +1,4 @@
-import Content from "./content.mdx";
+import Content from "../posts/content.mdx";
 import Link from "next/link";
 
 const Page = () => {
