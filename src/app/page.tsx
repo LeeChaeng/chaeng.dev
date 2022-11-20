@@ -1,7 +1,18 @@
+import Content from "./content.mdx";
+import Link from "next/link";
+
 const Page = () => {
   return (
     <div>
-      <h1>Chaeng.dev</h1>
+      <Content
+        components={{
+          a: ({ href, ...props }) => (
+            <Link href={href!}>
+              <a {...props} />
+            </Link>
+          ),
+        }}
+      />
     </div>
   );
 };
