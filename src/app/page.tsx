@@ -1,18 +1,10 @@
 import Content from "../posts/content.mdx";
-import Link from "next/link";
+import { mdxContent } from "../component/mdxContent";
 
 const Page = () => {
   return (
     <div>
-      <Content
-        components={{
-          a: ({ href, ...props }) => (
-            <Link href={href!}>
-              <a {...props} />
-            </Link>
-          ),
-        }}
-      />
+      <Content components={mdxContent} />
     </div>
   );
 };
