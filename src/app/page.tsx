@@ -1,5 +1,5 @@
 import Content from "../posts/content.mdx";
-import { mdxContent } from "../component/mdxContent";
+import { mdxContent } from "~/component/mdxContent";
 
 const Page = () => {
   return (
