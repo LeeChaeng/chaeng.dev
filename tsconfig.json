@@ -4,6 +4,7 @@
     "paths": {
       "~/*": ["src/*"],
     },
+    "baseUrl": ".",
     "lib": [
       "dom",
       "dom.iterable",

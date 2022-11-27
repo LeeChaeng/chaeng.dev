@@ -1,5 +1,5 @@
 import path from "path";
-import { POSTS_PATH } from "~/lib/api";
+import { getAllPosts, POSTS_PATH } from "~/lib/api";
 import * as fs from "fs";
 import matter from "gray-matter";
 
@@ -12,10 +12,18 @@ const getPost = (slug: string) => {
   return { content, data };
 };
 
-const PostPage = ({ params: { slug } }: { params: { slug: string } }) => {
-  const { content, data } = getPost(slug);
+const PostPage = ({ params }: { params?: { slug?: string } }) => {
+  const { content, data } = getPost(params?.slug ?? "");
 
   return <div>{content}</div>;
 };
+
+export async function generateStaticParams() {
+  const posts = getAllPosts(["slug"]);
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 export default PostPage;
