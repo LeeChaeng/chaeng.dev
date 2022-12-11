@@ -273,3 +273,7 @@ video {
     url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Regular.ttf')
     format('truetype');
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

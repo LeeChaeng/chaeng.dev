@@ -18,7 +18,7 @@ const Page = () => {
         return (
           <Link href={`/posts/${post.slug}`} key={post.slug}>
             <article>
-              <h2>{post.title}</h2>
+              <h2 className={"text-sky-500"}>{post.title}</h2>
             </article>
           </Link>
         );
