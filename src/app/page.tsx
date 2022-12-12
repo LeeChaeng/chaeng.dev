@@ -13,7 +13,11 @@ const Page = () => {
   ]);
 
   return (
-    <div>
+    <main
+      className={
+        "flex flex-1 relative flex-col items-center px-16px tablet:px-36px"
+      }
+    >
       {posts.map((post) => {
         return (
           <Link href={`/posts/${post.slug}`} key={post.slug}>
@@ -23,7 +27,7 @@ const Page = () => {
           </Link>
         );
       })}
-    </div>
+    </main>
   );
 };
 

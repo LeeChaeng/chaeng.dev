@@ -20,7 +20,21 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
           href={"/font/SpoqaHanSansNeo-Regular.woff2"}
         />
       </head>
-      <body>{children}</body>
+      <body className={"flex flex-col min-h-full relative"}>
+        <div
+          className={
+            "absolute top-0 left-0 w-full h-[300px] bg-gradient-to-b from-topColor to-white"
+          }
+        />
+        <div className={"flex-1"}>{children}</div>
+        <footer
+          className={
+            "text-[12px] text-center w-full py-[56px] bg-gradient-to-b from-white to-bottomColor color-text"
+          }
+        >
+          © Luna Lee
+        </footer>
+      </body>
     </html>
   );
 };
