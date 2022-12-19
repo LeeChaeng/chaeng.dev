@@ -26,7 +26,7 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
             "absolute top-0 left-0 w-full h-[300px] bg-gradient-to-b from-topColor to-white"
           }
         />
-        <div className={"flex-1"}>{children}</div>
+        {children}
         <footer
           className={
             "text-[12px] text-center w-full py-[56px] bg-gradient-to-b from-white to-bottomColor color-text"
