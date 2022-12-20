@@ -3,6 +3,7 @@ import { mdxContent } from "~/component/mdxContent";
 import { getAllPosts } from "~/lib/api";
 import Link from "next/link";
 import Image from "next/image";
+import { Post } from "~/component/post";
 
 const Page = () => {
   const posts = getAllPosts([
@@ -21,12 +22,10 @@ const Page = () => {
     >
       <div
         className={
-          "flex mobile:flex-col mobile:gap-[16px] tablet:flex-row tablet:gap-[32px] mx-[16px] mobile:mt-[40px] mobile:mb-[180px] tablet:mt-[60px] tablet:mb-[140px]"
+          "flex flex-col gap-[16px] tablet:flex-row tablet:gap-[32px] mx-[16px] mt-[40px] mb-[180px] tablet:mt-[60px] tablet:mb-[140px]"
         }
       >
-        <div
-          className={"flex flex-col items-center gap-[4px] mobile:self-center"}
-        >
+        <div className={"flex flex-col items-center gap-[4px] self-center"}>
           <Image
             alt="profile"
             width={72}
@@ -44,13 +43,13 @@ const Page = () => {
           </div>
         </div>
 
-        <div className={"tablet:min-w-[400] mobile:min-w-[300]"}>
+        <div className={"min-w-[300] tablet:min-w-[400]"}>
           <h1 className={"text-[24px] font-bold text-title pb-[8px]"}>
             <Link href={"/"} passHref>
               chaeng.dev
             </Link>
           </h1>
-          <span className={"text-[14px] font-normal text-text"}>
+          <span className={"text-[14px] font-normal text-text break-words"}>
             우당탕탕 프론트엔드 개발자 루나의 블로그
           </span>
 
@@ -66,15 +65,20 @@ const Page = () => {
           </div>
         </div>
       </div>
-      {posts.map((post) => {
-        return (
-          <Link href={`/posts/${post.slug}`} key={post.slug}>
-            <article>
-              <h2 className={"text-sky-500"}>{post.title}</h2>
-            </article>
-          </Link>
-        );
-      })}
+      <div className={"flex flex-col gap-[120px] mx-[16px] tablet:mx-[32px]"}>
+        {posts.map((post) => {
+          return (
+            <Post
+              key={post.slug}
+              summary={post.summary}
+              createdAt={post.createdAt}
+              slug={post.slug}
+              title={post.title}
+              thumbnail={post.coverImg}
+            />
+          );
+        })}
+      </div>
     </main>
   );
 };
