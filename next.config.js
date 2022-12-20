@@ -15,6 +15,9 @@ const nextConfig = {
     appDir: true,
   },
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  images: {
+    domains: ["images.chaeng.dev"],
+  },
 };
 
 module.exports = withMdx(nextConfig);
