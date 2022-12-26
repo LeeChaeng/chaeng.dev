@@ -28,13 +28,16 @@ const PostPage = ({ params }: { params?: { slug?: string } }) => {
         <Link href={"/"} className={"inline-block text-accent mt-[8px]"}>
           HOME
         </Link>
-        <span className={"text-[48px] font-bold"}>{data.title}</span>
+        <span className={"text-[48px] font-bold break-words"}>
+          {data.title}
+        </span>
         <span className={"text-text font-light"}>
           {dayjs(data.createdAt).format("MMMM DD, YYYY")}
         </span>
       </div>
 
-      {content}
+      {/*TODO: temporally css*/}
+      <div className={"break-all"}>{content}</div>
 
       <div
         className={
