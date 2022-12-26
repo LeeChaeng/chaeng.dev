@@ -62,7 +62,7 @@ const PostPage = ({ params }: { params?: { slug?: string } }) => {
           </div>
         </div>
 
-        <div className={"min-w-[300] tablet:min-w-[400]"}>
+        <div className={"tablet:min-w-[400]"}>
           <h1 className={"text-[24px] font-bold text-title pb-[8px]"}>
             <Link href={"/"} passHref>
               chaeng.dev
