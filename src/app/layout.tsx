@@ -28,6 +28,13 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
           }
         />
         {children}
+        <footer
+          className={
+            "text-[12px] text-center w-full py-[56px] bg-gradient-to-b from-white to-bottomColor color-text"
+          }
+        >
+          © Luna Lee
+        </footer>
       </body>
     </html>
   );
