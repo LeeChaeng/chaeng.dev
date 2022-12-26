@@ -20,7 +20,7 @@ const Post: FC<PostProps> = ({
 }) => {
   return (
     <article className={"max-w-[704px]"}>
-      <Link href={`/post/${slug}`}>
+      <Link href={`/posts/${slug}`}>
         <time dateTime={createdAt} className={"text-[14px] text-text"}>
           {dayjs(createdAt).format("MMMM DD, YYYY")}
         </time>
