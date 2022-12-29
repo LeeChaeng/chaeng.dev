@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import Link from "next/link";
 import dayjs from "dayjs";
 import Image from "next/image";
+import { MarkdownRenderer } from "~/component/markdownRenderer";
 
 const getPost = (slug: string) => {
   const postFilePath = path.join(POSTS_PATH, `${slug}.mdx`);
@@ -37,7 +38,8 @@ const PostPage = ({ params }: { params?: { slug?: string } }) => {
       </div>
 
       {/*TODO: temporally css*/}
-      <div className={"break-all"}>{content}</div>
+      {/*<div className={"break-all"}>{content}</div>*/}
+      <MarkdownRenderer>{content}</MarkdownRenderer>
 
       <div
         className={
