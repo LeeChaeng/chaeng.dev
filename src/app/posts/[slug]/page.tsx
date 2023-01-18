@@ -8,7 +8,7 @@ import Image from "next/image";
 import { MarkdownRenderer } from "~/component/markdownRenderer";
 
 const getPost = (slug: string) => {
-  const postFilePath = path.join(POSTS_PATH, `${slug}.mdx`);
+  const postFilePath = path.join(POSTS_PATH, `${slug}.md`);
   const source = fs.readFileSync(postFilePath);
 
   const { content, data } = matter(source);

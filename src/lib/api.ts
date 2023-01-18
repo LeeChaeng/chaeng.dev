@@ -13,8 +13,8 @@ type PostItems = {
 };
 
 const getPostBySlug = (slug: string, fields: string[] = []) => {
-  const realSlug = slug.replace(/\.mdx$/, "");
-  const fullPath = join(POSTS_PATH, `${realSlug}.mdx`);
+  const realSlug = slug.replace(/\.md$/, "");
+  const fullPath = join(POSTS_PATH, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
@@ -39,7 +39,13 @@ const getPostBySlug = (slug: string, fields: string[] = []) => {
 
 const getAllPosts = (fields: string[] = []) => {
   const slugs = getPostBySlugs();
-  return slugs.map((slug) => getPostBySlug(slug, fields));
+
+  return slugs
+    .map((slug) => getPostBySlug(slug, fields))
+    .sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
 };
 
 export { getAllPosts, POSTS_PATH };
