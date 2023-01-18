@@ -6,6 +6,8 @@ import Link from "next/link";
 import dayjs from "dayjs";
 import Image from "next/image";
 import { MarkdownRenderer } from "~/component/markdownRenderer";
+import GithubIcon from "~/asset/github.svg";
+import LinkedInIcon from "~/asset/linkedin.svg";
 
 const getPost = (slug: string) => {
   const postFilePath = path.join(POSTS_PATH, `${slug}.md`);
@@ -76,12 +78,10 @@ const PostPage = ({ params }: { params?: { slug?: string } }) => {
 
           <div className={"flex gap-[8px] pt-[8px] pb-[8px]"}>
             <Link href={"https://github.com/leechaeng"} passHref>
-              {/*<GitHub title="github" width={24} height={24} />*/}
-              Github
+              <GithubIcon title="github" />
             </Link>
             <Link href={"https://www.linkedin.com/in/leechaeng/"} passHref>
-              {/*<LinkedIn title="linkedin" width={24} height={24} />*/}
-              LinkedIn
+              <LinkedInIcon title="linkedin" />
             </Link>
           </div>
         </div>
