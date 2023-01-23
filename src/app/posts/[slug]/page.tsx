@@ -31,9 +31,7 @@ const PostPage = ({ params }: { params?: { slug?: string } }) => {
         <Link href={"/"} className={"inline-block text-accent mt-[8px]"}>
           HOME
         </Link>
-        <span className={"text-[48px] font-bold break-words"}>
-          {data.title}
-        </span>
+        <h1 className={"text-[40px] font-bold break-words"}>{data.title}</h1>
         <span className={"text-text font-light"}>
           {dayjs(data.createdAt).format("MMMM DD, YYYY")}
         </span>
