@@ -16,13 +16,20 @@
     "path": "^0.12.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-markdown": "^8.0.4"
+    "rehype-format": "^4.0.1",
+    "rehype-stringify": "^9.0.3",
+    "remark": "^14.0.2",
+    "remark-breaks": "^3.0.2",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "sanitize-html": "^2.8.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
     "@types/node": "18.11.17",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",
+    "@types/sanitize-html": "^2.8.0",
     "autoprefixer": "^10.4.13",
     "eslint": "8.30.0",
     "eslint-config-next": "13.0.7",
