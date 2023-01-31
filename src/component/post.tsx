@@ -25,11 +25,7 @@ const Post: FC<PostProps> = ({
           {dayjs(createdAt).format("MMMM DD, YYYY")}
         </time>
 
-        <h2
-          className={"text-[36px] mb-[16px] break-words text-title font-bold"}
-        >
-          {title}
-        </h2>
+        <h2 className={"mb-[16px] break-words text-title"}>{title}</h2>
 
         <div className={"flex flex-col tablet:flex-row gap-[24px]"}>
           <p className={"flex-1 flex flex-col order-2 tablet:order-1"}>

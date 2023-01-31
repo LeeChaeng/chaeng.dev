@@ -31,7 +31,7 @@ const PostPage = ({ params }: { params?: { slug?: string } }) => {
         <Link href={"/"} className={"inline-block text-accent mt-[8px]"}>
           HOME
         </Link>
-        <h1 className={"text-[40px] font-bold break-words"}>{data.title}</h1>
+        <h1 className={"break-words"}>{data.title}</h1>
         <span className={"text-text font-light"}>
           {dayjs(data.createdAt).format("MMMM DD, YYYY")}
         </span>
@@ -65,7 +65,7 @@ const PostPage = ({ params }: { params?: { slug?: string } }) => {
         </div>
 
         <div className={"tablet:min-w-[400]"}>
-          <h1 className={"text-[24px] font-bold text-title pb-[8px]"}>
+          <h1 className={"text-[24px] text-title pb-[8px]"}>
             <Link href={"/"} passHref>
               chaeng.dev
             </Link>

@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { remark } from "remark";
 import remarkBreaks from "remark-breaks";
-import sanitizeHtml from "sanitize-html";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
