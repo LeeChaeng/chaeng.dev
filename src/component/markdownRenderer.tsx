@@ -5,6 +5,7 @@ import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypeFormat from "rehype-format";
+import "../styles/markdownStyle.css";
 
 const MarkdownRenderer: FC<{ children: string }> = ({ children }) => {
   const filter = (html: string) => {
@@ -18,7 +19,12 @@ const MarkdownRenderer: FC<{ children: string }> = ({ children }) => {
       .toString();
   };
 
-  return <div dangerouslySetInnerHTML={{ __html: filter(children) }} />;
+  return (
+    <div
+      className={"markdown-body"}
+      dangerouslySetInnerHTML={{ __html: filter(children) }}
+    />
+  );
 };
 
 export { MarkdownRenderer };

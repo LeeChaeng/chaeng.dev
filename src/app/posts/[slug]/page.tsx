@@ -24,7 +24,7 @@ const PostPage = ({ params }: { params?: { slug?: string } }) => {
   return (
     <main
       className={
-        "flex flex-1 relative flex-col px-[32px] pt-[74px] max-w-[904px] self-center"
+        "flex flex-1 relative flex-col px-[32px] pt-[74px] max-w-[904px] self-center w-full"
       }
     >
       <div className={"flex flex-1 flex-col gap-[4px] mb-[32px]"}>
