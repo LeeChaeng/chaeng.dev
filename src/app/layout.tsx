@@ -1,5 +1,6 @@
 import { FC, ReactNode } from "react";
 import "../styles/globalStyle.css";
+import Script from "next/script";
 
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
@@ -23,6 +24,18 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
           crossOrigin=""
           href={"/font/SpoqaHanSansNeo-Regular.woff2"}
         />
+        {/*Google tag (gtag.js)*/}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-RREC2KXJJT"
+          strategy="afterInteractive"
+        ></Script>
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-RREC2KXJJT');`}
+        </Script>
       </head>
       <body className={"flex flex-col min-h-full relative"}>
         <div
