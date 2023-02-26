@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      day: 'sunday'
+      interval: 'weekly'
+      time: '12:00'
+      timezone: 'Asia/Seoul'
+    reviewers:
+      - 'leechaeng'
+    assignees:
+      - 'leechaeng'
