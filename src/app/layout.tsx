@@ -1,6 +1,7 @@
 import { FC, ReactNode } from "react";
 import "../styles/globalStyle.css";
 import Script from "next/script";
+import type { Metadata } from "next";
 
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
@@ -56,4 +57,18 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
   );
 };
 
+const metadata: Metadata = {
+  title: "우당탕탕 개발 블로그",
+  description: "프론트엔드 개발자 루나의 개발 블로그입니다.",
+  openGraph: {
+    title: "chaeng.dev",
+    description: "프론트엔드 개발자 루나의 개발 블로그입니다.",
+  },
+  twitter: {
+    title: "chaeng.dev",
+    description: "프론트엔드 개발자 루나의 개발 블로그입니다.",
+  },
+};
+
 export default RootLayout;
+export { metadata };
