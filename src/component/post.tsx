@@ -27,7 +27,7 @@ const Post: FC<PostProps> = ({
       <h2 className={"mb-[16px] break-words text-title"}>{title}</h2>
 
       <div className={"flex flex-col tablet:flex-row gap-[24px]"}>
-        <p className={"flex-1 flex flex-col order-2 tablet:order-1"}>
+        <p className={"flex-1 flex flex-col order-2 tablet:order-1 text-text"}>
           {summary}
           <span className={"text-[15px] text-accent mt-[4px]"}>Read More</span>
         </p>
