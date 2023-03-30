@@ -5,19 +5,19 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md"],
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md'],
   images: {
-    domains: ["images.chaeng.dev"],
+    domains: ['images.chaeng.dev'],
   },
-  webpack: config => {
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack'],
-    })
+    });
 
-    return config
-  }
+    return config;
+  },
 };
 
 module.exports = nextConfig;

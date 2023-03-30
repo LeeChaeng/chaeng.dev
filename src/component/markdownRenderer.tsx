@@ -1,12 +1,12 @@
-import { FC } from "react";
-import { remark } from "remark";
-import remarkBreaks from "remark-breaks";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
-import rehypeFormat from "rehype-format";
-import remarkGfm from "remark-gfm";
-import "../styles/markdownStyle.css";
+import { FC } from 'react';
+import { remark } from 'remark';
+import remarkBreaks from 'remark-breaks';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
+import rehypeFormat from 'rehype-format';
+import remarkGfm from 'remark-gfm';
+import '../styles/markdownStyle.css';
 
 const MarkdownRenderer: FC<{ children: string }> = ({ children }) => {
   const filter = (html: string) => {
@@ -23,7 +23,7 @@ const MarkdownRenderer: FC<{ children: string }> = ({ children }) => {
 
   return (
     <div
-      className={"markdown-body"}
+      className="markdown-body"
       dangerouslySetInnerHTML={{ __html: filter(children) }}
     />
   );

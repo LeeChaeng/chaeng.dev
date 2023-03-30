@@ -1,8 +1,8 @@
-import { join } from "path";
-import * as fs from "fs";
-import matter from "gray-matter";
+import { join } from 'path';
+import * as fs from 'fs';
+import matter from 'gray-matter';
 
-const POSTS_PATH = join(process.cwd(), "src/posts");
+const POSTS_PATH = join(process.cwd(), 'src/posts');
 
 const getPostBySlugs = (): string[] => {
   return fs.readdirSync(POSTS_PATH);
@@ -13,19 +13,19 @@ type PostItems = {
 };
 
 const getPostBySlug = (slug: string, fields: string[] = []) => {
-  const realSlug = slug.replace(/\.md$/, "");
+  const realSlug = slug.replace(/\.md$/, '');
   const fullPath = join(POSTS_PATH, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
   const items: PostItems = {};
 
   fields.forEach((field) => {
-    if (field === "slug") {
+    if (field === 'slug') {
       items[field] = realSlug;
     }
 
-    if (field === "content") {
+    if (field === 'content') {
       items[field] = content;
     }
 
