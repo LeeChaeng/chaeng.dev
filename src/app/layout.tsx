@@ -7,10 +7,7 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <html lang="ko">
       <head>
-        <meta
-          name="viewport"
-          content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1"
-        />
+        <meta name="viewport" content="width=device-width" />
         <link
           rel="preload"
           as="font"
