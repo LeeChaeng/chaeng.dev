@@ -68,10 +68,10 @@ const PostPage = ({ params }: { params?: { slug?: string } }) => {
 
           <div className="flex gap-[8px] pt-[8px] pb-[8px]">
             <Link href="https://github.com/leechaeng" passHref>
-              <GithubIcon title="github" />
+              <GithubIcon />
             </Link>
             <Link href="https://www.linkedin.com/in/leechaeng/" passHref>
-              <LinkedInIcon title="linkedin" />
+              <LinkedInIcon />
             </Link>
           </div>
         </div>
