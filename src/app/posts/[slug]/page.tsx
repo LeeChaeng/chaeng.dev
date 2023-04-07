@@ -6,8 +6,8 @@ import Link from 'next/link';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import { MarkdownRenderer } from '~/component/markdownRenderer';
-import GithubIcon from '~/asset/github.svg';
-import LinkedInIcon from '~/asset/linkedin.svg';
+import { GithubIcon } from '~/asset/githubIcon';
+import { LinkedInIcon } from '~/asset/linkedInIcon';
 
 const getPost = (slug: string) => {
   const postFilePath = path.join(POSTS_PATH, `${slug}.md`);

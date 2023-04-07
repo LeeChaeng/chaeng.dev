@@ -2,8 +2,8 @@ import { getAllPosts } from '~/lib/api';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Post } from '~/component/post';
-import GithubIcon from '~/asset/github.svg';
-import LinkedInIcon from '~/asset/linkedin.svg';
+import { GithubIcon } from '~/asset/githubIcon';
+import { LinkedInIcon } from '~/asset/linkedInIcon';
 
 const Page = () => {
   const posts = getAllPosts([
@@ -47,10 +47,10 @@ const Page = () => {
 
           <div className="flex gap-[8px] pt-[8px] pb-[8px]">
             <Link href="https://github.com/leechaeng" passHref>
-              <GithubIcon title="github" />
+              <GithubIcon />
             </Link>
             <Link href="https://www.linkedin.com/in/leechaeng/" passHref>
-              <LinkedInIcon title="linkedin" />
+              <LinkedInIcon />
             </Link>
           </div>
         </div>
