@@ -2,26 +2,13 @@ import { FC, ReactNode } from 'react';
 import '../styles/globalStyle.css';
 import Script from 'next/script';
 import type { Metadata } from 'next';
+import { Spoqa } from '~/app/font/font';
 
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <html lang="ko">
+    <html lang="ko" className={Spoqa.className}>
       <head>
         <meta name="viewport" content="width=device-width" />
-        <link
-          rel="preload"
-          as="font"
-          type="font/woff2"
-          crossOrigin=""
-          href="/font/SpoqaHanSansNeo-Bold.woff2"
-        />
-        <link
-          rel="preload"
-          as="font"
-          type="font/woff2"
-          crossOrigin=""
-          href="/font/SpoqaHanSansNeo-Regular.woff2"
-        />
         {/*Google tag (gtag.js)*/}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-RREC2KXJJT"

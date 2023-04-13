@@ -249,26 +249,6 @@ video {
   custom properties
 */
 
-@font-face {
-  font-family: 'Spoqa Han Sans Neo';
-  font-weight: 700;
-  src: url('/font/SpoqaHanSansNeo-Bold.woff2') format('woff2'),
-    url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Bold.woff')
-      format('woff'),
-    url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Bold.ttf')
-      format('truetype');
-}
-
-@font-face {
-  font-family: 'Spoqa Han Sans Neo';
-  font-weight: 400;
-  src: url('/font/SpoqaHanSansNeo-Regular.woff2') format('woff2'),
-    url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Regular.woff')
-      format('woff'),
-    url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@latest/Subset/SpoqaHanSansNeo/SpoqaHanSansNeo-Regular.ttf')
-      format('truetype');
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
