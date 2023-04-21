@@ -1,25 +1,22 @@
-import path from 'path';
-import { getAllPosts, POSTS_PATH } from '~/lib/api';
-import * as fs from 'fs';
-import matter from 'gray-matter';
+import { getAllPosts, getPostBySlug } from '~/lib/api';
 import Link from 'next/link';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import { MarkdownRenderer } from '~/component/markdownRenderer';
 import { GithubIcon } from '~/asset/githubIcon';
 import { LinkedInIcon } from '~/asset/linkedInIcon';
-
-const getPost = (slug: string) => {
-  const postFilePath = path.join(POSTS_PATH, `${slug}.md`);
-  const source = fs.readFileSync(postFilePath);
-
-  const { content, data } = matter(source);
-
-  return { content, data };
-};
+import { notFound } from 'next/navigation';
 
 const PostPage = ({ params }: { params?: { slug?: string } }) => {
-  const { content, data } = getPost(params?.slug ?? '');
+  if (params.slug === undefined) {
+    notFound();
+  }
+
+  const { title, createdAt, content } = getPostBySlug(params.slug, [
+    'title',
+    'createdAt',
+    'content',
+  ]);
 
   return (
     <main className="flex flex-1 relative flex-col px-[32px] pt-[74px] max-w-[904px] self-center w-full">
@@ -27,9 +24,9 @@ const PostPage = ({ params }: { params?: { slug?: string } }) => {
         <Link href="/" className="inline-block text-accent mt-[8px]">
           HOME
         </Link>
-        <h1 className="break-words">{data.title}</h1>
+        <h1 className="break-words">{title}</h1>
         <span className="text-text font-light">
-          {dayjs(data.createdAt).format('MMMM DD, YYYY')}
+          {dayjs(createdAt).format('MMMM DD, YYYY')}
         </span>
       </div>
 
@@ -80,12 +77,30 @@ const PostPage = ({ params }: { params?: { slug?: string } }) => {
   );
 };
 
-export async function generateStaticParams() {
+const generateStaticParams = async () => {
   const posts = getAllPosts(['slug']);
 
   return posts.map((post) => ({
     slug: post.slug,
   }));
-}
+};
+
+const generateMetadata = ({ params }) => {
+  const { title, summary } = getPostBySlug(params.slug, ['title', 'summary']);
+
+  return {
+    title,
+    description: summary,
+    openGraph: {
+      title,
+      description: summary,
+    },
+    twitter: {
+      title,
+      description: summary,
+    },
+  };
+};
 
 export default PostPage;
+export { generateMetadata, generateStaticParams };

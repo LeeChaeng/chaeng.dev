@@ -48,4 +48,4 @@ const getAllPosts = (fields: string[] = []) => {
     );
 };
 
-export { getAllPosts, POSTS_PATH };
+export { getAllPosts, POSTS_PATH, getPostBySlug };

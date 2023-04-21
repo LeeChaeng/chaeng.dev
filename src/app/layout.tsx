@@ -34,7 +34,10 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
 };
 
 const metadata: Metadata = {
-  title: '우당탕탕 개발 블로그',
+  title: {
+    template: '%s | chaeng.dev',
+    default: 'chaeng.dev',
+  },
   description: '프론트엔드 개발자 루나의 개발 블로그입니다.',
   openGraph: {
     title: 'chaeng.dev',
