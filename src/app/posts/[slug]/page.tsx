@@ -8,7 +8,7 @@ import { LinkedInIcon } from '~/asset/linkedInIcon';
 import { notFound } from 'next/navigation';
 
 const PostPage = ({ params }: { params?: { slug?: string } }) => {
-  if (params.slug === undefined) {
+  if (!params || params.slug === undefined) {
     notFound();
   }
 
@@ -85,7 +85,7 @@ const generateStaticParams = async () => {
   }));
 };
 
-const generateMetadata = ({ params }) => {
+const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const { title, summary } = getPostBySlug(params.slug, ['title', 'summary']);
 
   return {
