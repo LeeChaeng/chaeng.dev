@@ -1,6 +1,7 @@
 import { join } from 'path';
 import * as fs from 'fs';
 import matter from 'gray-matter';
+import { isNotNull } from '~/utils/isNotNull';
 
 const POSTS_PATH = join(process.cwd(), 'src/posts');
 
@@ -15,6 +16,11 @@ type PostItems = {
 const getPostBySlug = (slug: string, fields: string[] = []) => {
   const realSlug = slug.replace(/\.md$/, '');
   const fullPath = join(POSTS_PATH, `${realSlug}.md`);
+
+  if (!fs.existsSync(fullPath)) {
+    return null;
+  }
+
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
@@ -42,6 +48,7 @@ const getAllPosts = (fields: string[] = []) => {
 
   return slugs
     .map((slug) => getPostBySlug(slug, fields))
+    .filter(isNotNull)
     .sort(
       (a, b) =>
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()

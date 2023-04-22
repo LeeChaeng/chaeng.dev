@@ -7,16 +7,18 @@ import { GithubIcon } from '~/asset/githubIcon';
 import { LinkedInIcon } from '~/asset/linkedInIcon';
 import { notFound } from 'next/navigation';
 
-const PostPage = ({ params }: { params?: { slug?: string } }) => {
-  if (!params || params.slug === undefined) {
+interface Param {
+  slug: string;
+}
+
+const PostPage = ({ params }: { params: Param }) => {
+  const data = getPostBySlug(params.slug, ['title', 'createdAt', 'content']);
+
+  if (!data) {
     notFound();
   }
 
-  const { title, createdAt, content } = getPostBySlug(params.slug, [
-    'title',
-    'createdAt',
-    'content',
-  ]);
+  const { title, createdAt, content } = data;
 
   return (
     <main className="flex flex-1 relative flex-col px-[32px] pt-[74px] max-w-[904px] self-center w-full">
@@ -77,7 +79,7 @@ const PostPage = ({ params }: { params?: { slug?: string } }) => {
   );
 };
 
-const generateStaticParams = async () => {
+const generateStaticParams = async (): Promise<Param[]> => {
   const posts = getAllPosts(['slug']);
 
   return posts.map((post) => ({
@@ -85,8 +87,14 @@ const generateStaticParams = async () => {
   }));
 };
 
-const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const { title, summary } = getPostBySlug(params.slug, ['title', 'summary']);
+const generateMetadata = ({ params }: { params: Param }) => {
+  const data = getPostBySlug(params.slug, ['title', 'summary']);
+
+  if (!data) {
+    return;
+  }
+
+  const { title, summary } = data;
 
   return {
     title,
