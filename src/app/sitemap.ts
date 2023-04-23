@@ -14,6 +14,10 @@ const sitemap = (): MetadataRoute.Sitemap => {
       url: 'https://chaeng.dev/posts/blog-production-review',
       lastModified: new Date(),
     },
+    {
+      url: 'https://chaeng.dev/posts/dont-use-react-query-callback',
+      lastModified: new Date(),
+    },
   ];
 };
 
