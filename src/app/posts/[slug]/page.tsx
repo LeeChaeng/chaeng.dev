@@ -93,13 +93,18 @@ const generateStaticParams = async (): Promise<Param[]> => {
 };
 
 const generateMetadata = ({ params }: { params: Param }) => {
-  const data = getPostBySlug(params.slug, ['title', 'summary']);
+  const data = getPostBySlug(params.slug, [
+    'title',
+    'summary',
+    'createdAt',
+    'coverImg',
+  ]);
 
   if (!data) {
     return;
   }
 
-  const { title, summary } = data;
+  const { title, summary, createdAt, coverImg } = data;
 
   return {
     title,
@@ -107,10 +112,15 @@ const generateMetadata = ({ params }: { params: Param }) => {
     openGraph: {
       title,
       description: summary,
+      type: 'article',
+      publishedTime: createdAt,
+      images: `https://images.chaeng.dev/post/${coverImg}`,
     },
     twitter: {
       title,
       description: summary,
+      images: `https://images.chaeng.dev/post/${coverImg}`,
+      card: 'summary',
     },
   };
 };
