@@ -76,9 +76,9 @@ Component 내부에서 useQuery가 `suspense: true`로 설정되어 있고, onSu
 Component에서 setState된 값을 통해서 설정된 state값이 보일것이라고 추론하겠지만, 실제로는 그렇지 않고, 5번에서 실행된 setState는 이미 unMount된 컴포넌트의 state를 조작한 셈이 되기 때문에 UI에서 변경된 값을 볼 수는 없을 것이다.   
 
 ## react query v5에서는 사라지게 되는 useQuery callback 함수들
-그래서 react query의 useQuery callback들이 사이드 이펙트로 인해서 react-query v5에서는 useQuery의 콜백들이 사라진다고 한다. (useMutation은 아님!) 
+그래서 react-query v5에서는 useQuery의 callback들이 사라진다고 한다. (useMutation은 아님!)
 
-자 그렇다면 쿼리의 onSuccess에 어쩔 수 없이 state가 의존해야 하는 상황이 온다면 어떻게 처리해야 할까? 
+자 그렇다면 어쩔 수 없이 state가 쿼리의 onSuccess에 의존해야 하는 상황이 온다면 어떻게 처리해야 할까? 
 
 정답은 useEffect에 있다.
 
