@@ -12,7 +12,12 @@ interface Param {
 }
 
 const PostPage = ({ params }: { params: Param }) => {
-  const data = getPostBySlug(params.slug, ['title', 'createdAt', 'content']);
+  const data = getPostBySlug(params.slug, [
+    'title',
+    'createdAt',
+    'content',
+    'coverImg',
+  ]);
 
   if (!data) {
     notFound();

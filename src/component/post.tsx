@@ -36,7 +36,7 @@ const Post: FC<PostProps> = ({
         {thumbnail && (
           <div className="flex-1 relative aspect-[5/3] rounded-lg drop-shadow-lg order-1 tablet:order-2">
             <Image
-              src={`https://images.chaeng.dev/${thumbnail}`}
+              src={`https://images.chaeng.dev/post/${thumbnail}`}
               alt="post example"
               fill={true}
               className="object-cover rounded-lg"
