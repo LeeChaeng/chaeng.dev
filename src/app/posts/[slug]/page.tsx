@@ -114,12 +114,12 @@ const generateMetadata = ({ params }: { params: Param }) => {
       description: summary,
       type: 'article',
       publishedTime: createdAt,
-      images: `https://images.chaeng.dev/post/${coverImg}`,
+      images: `https://images.chaeng.dev/post/${coverImg ?? 'default.webp'}`,
     },
     twitter: {
       title,
       description: summary,
-      images: `https://images.chaeng.dev/post/${coverImg}`,
+      images: `https://images.chaeng.dev/post/${coverImg ?? 'default.webp'}`,
       card: 'summary',
     },
   };
