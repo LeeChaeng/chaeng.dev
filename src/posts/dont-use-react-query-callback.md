@@ -1,6 +1,6 @@
 ---
 title: 'useQuery callback 함수의 사이드이펙트'
-createdAt: '2023-04-22T05:44:49.512Z'
+createdAt: '2023-04-23T10:00:14.858Z'
 summary: 'react query의 useQuery와 useMutation을 사용해 본 적 있는가? 그렇다면 한번쯤은 onSuccess나 onError와 같은 콜백들을 사용해봤을 것이다. 개인적으로 useQuery의 onSuccess를 사용하는 것을 피하려고 한다.'
 ---
 
