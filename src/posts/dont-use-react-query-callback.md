@@ -1,7 +1,7 @@
 ---
 title: 'useQuery callback 함수의 사이드이펙트'
 createdAt: '2023-04-22T05:44:49.512Z'
-summary: '블로그의 첫번째 포스팅'
+summary: 'react query의 useQuery와 useMutation을 사용해 본 적 있는가? 그렇다면 한번쯤은 onSuccess나 onError와 같은 콜백들을 사용해봤을 것이다. 개인적으로 useQuery의 onSuccess를 사용하는 것을 피하려고 한다.'
 ---
 
 react query의 useQuery와 useMutation을 사용해 본 적 있는가? 그렇다면 한번쯤은 onSuccess나 onError와 같은 콜백들을 사용해봤을 것이다. 
@@ -75,11 +75,40 @@ Component 내부에서 useQuery가 `suspense: true`로 설정되어 있고, onSu
 
 Component에서 setState된 값을 통해서 설정된 state값이 보일것이라고 추론하겠지만, 실제로는 그렇지 않고, 5번에서 실행된 setState는 이미 unMount된 컴포넌트의 state를 조작한 셈이 되기 때문에 UI에서 변경된 값을 볼 수는 없을 것이다.   
 
-## 사라지게 되는 react query의 useQuery callback 함수들
-그래서 react query의 useQuery callback들이 사이드 이펙트로 인해서 react-query v5에서는 useQuery의 콜백들이 사라진다고 한다. 
+## react query v5에서는 사라지게 되는 useQuery callback 함수들
+그래서 react query의 useQuery callback들이 사이드 이펙트로 인해서 react-query v5에서는 useQuery의 콜백들이 사라진다고 한다. (useMutation은 아님!) 
 
 자 그렇다면 쿼리의 onSuccess에 어쩔 수 없이 state가 의존해야 하는 상황이 온다면 어떻게 처리해야 할까? 
 
 정답은 useEffect에 있다.
 
+```js
+export function useTodos(filters) {
+  const { dispatch } = useDispatch()
 
+  const query = useQuery({
+    queryKey: ['todos', 'list', { filters }],
+    queryFn: () => fetchTodos(filters),
+    staleTime: 2 * 60 * 1000,
+  })
+
+  useEffect(() => {
+    if (query.data) {
+      dispatch(setTodos(query.data))
+    }
+  }, [query.data])
+
+  return query
+}
+```
+
+위 코드와 같이 dependecy array에 data를 추가해서 useEffect 내부에서 처리해주면 어쩔 수 없이 state를 셋팅해야 하는 상황에서 사이드이펙트 없이 사용할 수 있다.
+
+## 마무리하며
+useQuery를 사용하면서 사용할 수 있는 onSuccess, onError, onSettled와 같은 콜백들의 사이드 이펙트들을 알아봤다. 
+결국 react-query의 v5에서는 이런 콜백들이 사라져서 사이드 이펙트들을 마주할 일을 더 적어지겠지만, 현재 사용하고 있다면 breaking change로 인해 리팩토링을 진행해야 할 것이다. 몇몇 코드에서 onSuccess를 덜어내고 있는데 훨씬 더 좋은 코드가 작성되는 것 같아서 미리 리팩토링을 진행하는 것도 추천한다. 👍  
+
+## Reference
+
+- [Breaking React Query's API on purpose | TkDodo's blog](https://tkdodo.eu/blog/breaking-react-querys-api-on-purpose)
+- [setState in onSuccess is not working first time with suspense | Github](https://github.com/TanStack/query/issues/3784#issue-1296978356)
