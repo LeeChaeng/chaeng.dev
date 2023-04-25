@@ -80,25 +80,26 @@ Component 내부에서 useQuery가 `suspense: true`로 설정되어 있고, onSu
 Component에서 setState된 값을 통해서 설정된 state값이 보일것이라고 추론하겠지만, 실제로는 그렇지 않고, 5번에서 실행된 setState는 이미 unMount된 컴포넌트의 state를 조작한 셈이 되기 때문에 UI에서 변경된 값을 볼 수는 없을 것이다.   
 
 ## react query v5에서는 사라지게 되는 useQuery callback 함수들
-그래서 react-query v5에서는 useQuery의 callback들이 사라진다고 한다. (useMutation은 아님!)
+그래서 react-query v5에서는 useQuery의 `onSuccess`, `onError`, `onSettled`와 같은 callback들이 사라진다고 한다. (useMutation은 아님!)
 
 자 그렇다면 어쩔 수 없이 state가 쿼리의 onSuccess에 의존해야 하는 상황이 온다면 어떻게 처리해야 할까? 
 
 정답은 useEffect에 있다.
 
 ```js
-export function useTodos(filters) {
-  const { dispatch } = useDispatch()
+export function TodoList(filters) {
+  const [isDoneAllTodos, setIsDoneAllTodos] = useState(false)
 
   const query = useQuery({
     queryKey: ['todos', 'list', { filters }],
     queryFn: () => fetchTodos(filters),
-    staleTime: 2 * 60 * 1000,
   })
 
   useEffect(() => {
     if (query.data) {
-      dispatch(setTodos(query.data))
+      const isAllDone = query.data.every(todo => todo.isDone);
+      
+      setIsDoneAllTodos(isAllDone);
     }
   }, [query.data])
 
@@ -106,7 +107,7 @@ export function useTodos(filters) {
 }
 ```
 
-위 코드와 같이 dependecy array에 data를 추가해서 useEffect 내부에서 처리해주면 어쩔 수 없이 state를 셋팅해야 하는 상황에서 사이드이펙트 없이 사용할 수 있다.
+위 코드와 같이 api를 통해 받아온 데이터를 통해 모든 todo를 완료하였는지를 판단하고 싶다면, useEffect의 dependency array에 data를 추가해주어 처리하면 state를 셋팅해야 하는 상황에서 사이드 이펙트 없이 사용할 수 있다. 
 
 ## 마무리하며
 useQuery를 사용하면서 사용할 수 있는 onSuccess, onError, onSettled와 같은 콜백들의 사이드 이펙트들을 알아봤다. 
