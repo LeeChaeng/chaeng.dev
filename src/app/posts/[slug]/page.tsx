@@ -3,7 +3,7 @@ import Link from 'next/link';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import { MarkdownRenderer } from '~/component/markdownRenderer';
-import { GithubIcon } from '~/asset/githubIcon';
+import { GitHubIcon } from '~/asset/gitHubIcon';
 import { LinkedInIcon } from '~/asset/linkedInIcon';
 import { notFound } from 'next/navigation';
 
@@ -72,7 +72,7 @@ const PostPage = ({ params }: { params: Param }) => {
 
           <div className="flex gap-[8px] pt-[8px] pb-[8px]">
             <Link href="https://github.com/leechaeng" passHref>
-              <GithubIcon />
+              <GitHubIcon />
             </Link>
             <Link href="https://www.linkedin.com/in/leechaeng/" passHref>
               <LinkedInIcon />

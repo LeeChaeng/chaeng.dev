@@ -116,4 +116,4 @@ useQuery를 사용하면서 사용할 수 있는 onSuccess, onError, onSettled�
 ## Reference
 
 - [Breaking React Query's API on purpose | TkDodo's blog](https://tkdodo.eu/blog/breaking-react-querys-api-on-purpose)
-- [setState in onSuccess is not working first time with suspense | Github](https://github.com/TanStack/query/issues/3784#issue-1296978356)
+- [setState in onSuccess is not working first time with suspense | GitHub](https://github.com/TanStack/query/issues/3784#issue-1296978356)

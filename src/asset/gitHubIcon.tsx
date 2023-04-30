@@ -1,4 +1,4 @@
-const GithubIcon = () => {
+const GitHubIcon = () => {
   return (
     <svg
       width="24"
@@ -7,7 +7,7 @@ const GithubIcon = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <title>github-icon</title>
+      <title>GitHub-icon</title>
       <g clipPath="url(#clip0_348_102)">
         <path
           fillRule="evenodd"
@@ -25,4 +25,4 @@ const GithubIcon = () => {
   );
 };
 
-export { GithubIcon };
+export { GitHubIcon };

@@ -2,7 +2,7 @@ import { getAllPosts } from '~/lib/api';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Post } from '~/component/post';
-import { GithubIcon } from '~/asset/githubIcon';
+import { GitHubIcon } from '~/asset/gitHubIcon';
 import { LinkedInIcon } from '~/asset/linkedInIcon';
 
 const Page = () => {
@@ -47,7 +47,7 @@ const Page = () => {
 
           <div className="flex gap-[8px] pt-[8px] pb-[8px]">
             <Link href="https://github.com/leechaeng" passHref>
-              <GithubIcon />
+              <GitHubIcon />
             </Link>
             <Link href="https://www.linkedin.com/in/leechaeng/" passHref>
               <LinkedInIcon />
