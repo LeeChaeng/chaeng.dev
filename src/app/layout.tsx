@@ -3,6 +3,7 @@ import '../styles/globalStyle.css';
 import Script from 'next/script';
 import type { Metadata } from 'next';
 import { Spoqa } from '~/app/font/font';
+import { Analytics } from '@vercel/analytics/react';
 
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
@@ -28,6 +29,7 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
         <footer className="text-[12px] text-center w-full py-[56px] bg-gradient-to-b from-white to-bottomColor color-text">
           © Luna Lee
         </footer>
+        <Analytics />
       </body>
     </html>
   );

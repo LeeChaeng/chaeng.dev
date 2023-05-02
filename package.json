@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.0.0",
     "dayjs": "^1.11.7",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
