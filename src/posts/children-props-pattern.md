@@ -1,7 +1,7 @@
 ---
 title: 'Children Props Pattern'
 createdAt: '2023-05-29T06:12:58.846Z'
-summary: 'React에서 컴포넌트를 나누는 방법에는 여러가지 방법들이 존재하고, 개발자마다 작성하는 방법 또한 다를것이라고 생각한다. 개인적으로 컴포넌트를 나눌때 나는 재사용과 리렌더링의 관점에서 작성하곤 한다.'
+summary: 'React에서 컴포넌트를 나누는 방법에는 여러가지 방법들이 존재하고, 개발자마다 작성하는 방법 또한 다를것이라고 생각한다. 개인적으로 컴포넌트를 나눌때 재사용과 리렌더링의 관점에서 작성하곤 한다.'
 coverImg: 'childrenPropsPattern-thumbnail.webp'
 ---
 
