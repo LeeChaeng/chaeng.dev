@@ -179,7 +179,7 @@ function Root() {
 
 ```
 
-변경된 코드를 살펴보자면 기존과 다르게 `BookList`가 children props를 받을 수 있게 되었고, `Root`에서 `BookList`를 사용할 수 있게 변경되었다. 이 상황에서 children은 하나의 변수로써 작용하며 `BookList`에서 내부 로직이 변경되어 렌더링이 트리거될 때 `BookItem`은 리렌더되지 않습니다. 
+변경된 코드를 살펴보자면 기존과 다르게 `BookList`가 children props를 받을 수 있게 되었고, `Root`에서 `BookList`를 사용할 수 있게 변경되었다. 이 상황에서 children은 하나의 변수로써 작용하며 `BookList`에서 내부 로직이 변경되어 렌더링이 트리거될 때 `BookItem`은 리렌더되지 않는다. 
 
 children props pattern은 이렇게 부모 컴포넌트와 자식 컴포넌트가 상호작용하고 있지 않을 때 상위 레벨로 자식 컴포넌트를 올려서 부모 컴포넌트에서 children으로 활용하는 패턴을 말한다. 
 
