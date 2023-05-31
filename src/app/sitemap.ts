@@ -18,6 +18,10 @@ const sitemap = (): MetadataRoute.Sitemap => {
       url: 'https://chaeng.dev/posts/dont-use-react-query-callback',
       lastModified: new Date(),
     },
+    {
+      url: 'https://chaeng.dev/posts/children-props-pattern',
+      lastModified: new Date(),
+    },
   ];
 };
 
