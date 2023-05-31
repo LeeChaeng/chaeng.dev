@@ -1,4 +1,4 @@
-import { getAllPosts, getPostBySlug } from '~/lib/api';
+import { getPostBySlug, getPosts } from '~/lib/api';
 import Link from 'next/link';
 import dayjs from 'dayjs';
 import Image from 'next/image';
@@ -12,12 +12,7 @@ interface Param {
 }
 
 const PostPage = ({ params }: { params: Param }) => {
-  const data = getPostBySlug(params.slug, [
-    'title',
-    'createdAt',
-    'content',
-    'coverImg',
-  ]);
+  const data = getPostBySlug(params.slug);
 
   if (!data) {
     notFound();
@@ -85,7 +80,7 @@ const PostPage = ({ params }: { params: Param }) => {
 };
 
 const generateStaticParams = async (): Promise<Param[]> => {
-  const posts = getAllPosts(['slug']);
+  const posts = getPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -93,12 +88,7 @@ const generateStaticParams = async (): Promise<Param[]> => {
 };
 
 const generateMetadata = ({ params }: { params: Param }) => {
-  const data = getPostBySlug(params.slug, [
-    'title',
-    'summary',
-    'createdAt',
-    'coverImg',
-  ]);
+  const data = getPostBySlug(params.slug);
 
   if (!data) {
     return;

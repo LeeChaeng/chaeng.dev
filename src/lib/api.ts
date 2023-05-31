@@ -2,57 +2,40 @@ import { join } from 'path';
 import * as fs from 'fs';
 import matter from 'gray-matter';
 import { isNotNull } from '~/utils/isNotNull';
+import { cache } from 'react';
 
 const POSTS_PATH = join(process.cwd(), 'src/posts');
-
-const getPostBySlugs = (): string[] => {
-  return fs.readdirSync(POSTS_PATH);
-};
 
 type PostItems = {
   [key: string]: string;
 };
 
-const getPostBySlug = (slug: string, fields: string[] = []) => {
-  const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(POSTS_PATH, `${realSlug}.md`);
+const getPosts = cache(() => {
+  const posts = fs.readdirSync(POSTS_PATH);
 
-  if (!fs.existsSync(fullPath)) {
-    return null;
-  }
+  return posts
+    .map((slug) => {
+      const realSlug = slug.replace(/\.md$/, '');
+      const fullPath = join(POSTS_PATH, `${realSlug}.md`);
 
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
+      if (!fs.existsSync(fullPath)) {
+        return null;
+      }
 
-  const items: PostItems = {};
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const { data, content } = matter(fileContents);
 
-  fields.forEach((field) => {
-    if (field === 'slug') {
-      items[field] = realSlug;
-    }
-
-    if (field === 'content') {
-      items[field] = content;
-    }
-
-    if (data[field]) {
-      items[field] = data[field];
-    }
-  });
-
-  return items;
-};
-
-const getAllPosts = (fields: string[] = []) => {
-  const slugs = getPostBySlugs();
-
-  return slugs
-    .map((slug) => getPostBySlug(slug, fields))
+      return { ...data, content, slug: realSlug } as PostItems;
+    })
     .filter(isNotNull)
     .sort(
       (a, b) =>
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );
+});
+
+const getPostBySlug = (slug: string) => {
+  return getPosts().find((post) => post.slug === slug);
 };
 
-export { getAllPosts, POSTS_PATH, getPostBySlug };
+export { getPosts, POSTS_PATH, getPostBySlug };

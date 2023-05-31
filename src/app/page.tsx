@@ -1,4 +1,4 @@
-import { getAllPosts } from '~/lib/api';
+import { getPosts } from '~/lib/api';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Post } from '~/component/post';
@@ -6,13 +6,7 @@ import { GitHubIcon } from '~/asset/gitHubIcon';
 import { LinkedInIcon } from '~/asset/linkedInIcon';
 
 const Page = () => {
-  const posts = getAllPosts([
-    'slug',
-    'coverImg',
-    'title',
-    'createdAt',
-    'summary',
-  ]);
+  const posts = getPosts();
 
   return (
     <main className="flex flex-1 relative flex-col items-center px-16px tablet:px-36px">
