@@ -1,27 +1,20 @@
 import { MetadataRoute } from 'next';
+import { getPosts } from '~/lib/api';
 
 const sitemap = (): MetadataRoute.Sitemap => {
+  const lastModified = new Date().toISOString().split('T')[0];
+
+  const posts = getPosts().map((post) => ({
+    url: `https://chaeng.dev/posts/${post.slug}`,
+    lastModified,
+  }));
+
   return [
     {
       url: 'https://chaeng.dev',
-      lastModified: new Date(),
+      lastModified,
     },
-    {
-      url: 'https://chaeng.dev/posts/first-content',
-      lastModified: new Date(),
-    },
-    {
-      url: 'https://chaeng.dev/posts/blog-production-review',
-      lastModified: new Date(),
-    },
-    {
-      url: 'https://chaeng.dev/posts/dont-use-react-query-callback',
-      lastModified: new Date(),
-    },
-    {
-      url: 'https://chaeng.dev/posts/children-props-pattern',
-      lastModified: new Date(),
-    },
+    ...posts,
   ];
 };
 
