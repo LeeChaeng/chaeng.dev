@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ESNext",
     "paths": {
-      "~/*": ["src/*"]
+      "@/*": ["./*"]
     },
     "baseUrl": ".",
     "lib": ["dom", "dom.iterable", "esnext"],

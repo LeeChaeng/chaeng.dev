@@ -1,3 +1,5 @@
+@layer reset, base, tokens, recipes, utilities;
+
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -249,9 +251,6 @@ video {
   custom properties
 */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 h1 {
   font-size: 40px;
