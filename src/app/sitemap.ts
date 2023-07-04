@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getPosts } from '~/lib/api';
+import { getPosts } from '@/src/lib/api';
 
 const sitemap = (): MetadataRoute.Sitemap => {
   const lastModified = new Date().toISOString().split('T')[0];

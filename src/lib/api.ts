@@ -1,7 +1,7 @@
 import { join } from 'path';
 import * as fs from 'fs';
 import matter from 'gray-matter';
-import { isNotNull } from '~/utils/isNotNull';
+import { isNotNull } from '@/src/utils/isNotNull';
 import { cache } from 'react';
 
 const POSTS_PATH = join(process.cwd(), 'src/posts');

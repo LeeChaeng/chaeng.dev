@@ -1,45 +1,126 @@
-import { getPosts } from '~/lib/api';
+import { getPosts } from '@/src/lib/api';
+import { css } from '@/styled-system/css';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Post } from '~/component/post';
-import { GitHubIcon } from '~/asset/gitHubIcon';
-import { LinkedInIcon } from '~/asset/linkedInIcon';
+import { Post } from '@/src/component/post';
+import { GitHubIcon } from '@/src/asset/gitHubIcon';
+import { LinkedInIcon } from '@/src/asset/linkedInIcon';
 
 const Page = () => {
   const posts = getPosts();
 
   return (
-    <main className="flex flex-1 relative flex-col items-center px-16px tablet:px-36px">
-      <div className="flex flex-col gap-[16px] tablet:flex-row tablet:gap-[32px] mx-[16px] mt-[40px] mb-[180px] tablet:mt-[60px] tablet:mb-[140px]">
-        <div className="flex flex-col items-center gap-[4px] self-center">
+    <main
+      className={css({
+        display: 'flex',
+        position: 'relative',
+        flexDirection: 'column',
+        flex: '1',
+        alignItems: 'center',
+        paddingX: {
+          base: '16px',
+          sm: '36px',
+        },
+      })}
+    >
+      <div
+        className={css({
+          display: 'flex',
+          flexDirection: {
+            base: 'column',
+            sm: 'row',
+          },
+          gap: {
+            base: '16px',
+            sm: '32px',
+          },
+          marginX: '16px',
+          marginTop: {
+            base: '40px',
+            sm: '60px',
+          },
+          marginBottom: {
+            base: '180px',
+            sm: '140px',
+          },
+        })}
+      >
+        <div
+          className={css({
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '4px',
+            alignSelf: 'center',
+          })}
+        >
           <Image
             alt="profile"
             width={72}
             height={72}
             src="/profile.jpeg"
-            className="rounded-full"
+            className={css({
+              borderRadius: '9999px',
+            })}
           />
-          <div className="flex flex-col items-center">
-            <span className="text-[16px] font-bold text-title">
+          <div
+            className={css({
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            })}
+          >
+            <span
+              className={css({
+                fontSize: '16px',
+                fontWeight: 'bold',
+                color: 'title',
+              })}
+            >
               이채영 (Luna Lee)
             </span>
-            <span className="text-[12px] font-normal text-text">
+            <span
+              className={css({
+                fontSize: '12px',
+                fontWeight: '400',
+                color: 'text',
+              })}
+            >
               Frontend Engineer
             </span>
           </div>
         </div>
 
-        <div className="tablet:min-w-[400]">
-          <h1 className="text-[24px] text-title pb-[8px]">
+        <div>
+          <h1
+            className={css({
+              fontSize: '24px',
+              color: 'title',
+              paddingBottom: '8px',
+            })}
+          >
             <Link href="/" passHref>
               chaeng.dev
             </Link>
           </h1>
-          <span className="text-[14px] font-normal text-text break-words">
+          <span
+            className={css({
+              fontSize: '14px',
+              fontWeight: '400',
+              color: 'text',
+              overflowWrap: 'break-word',
+            })}
+          >
             우당탕탕 프론트엔드 개발자 루나의 블로그
           </span>
 
-          <div className="flex gap-[8px] pt-[8px] pb-[8px]">
+          <div
+            className={css({
+              display: 'flex',
+              gap: '8px',
+              paddingY: '8px',
+            })}
+          >
             <Link href="https://github.com/leechaeng" passHref>
               <GitHubIcon />
             </Link>
@@ -49,7 +130,17 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-[120px] mx-[16px] tablet:mx-[32px]">
+      <div
+        className={css({
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '120px',
+          marginX: {
+            base: '16px',
+            sm: '32px',
+          },
+        })}
+      >
         {posts.map((post) => {
           return (
             <Post
