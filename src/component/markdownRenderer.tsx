@@ -7,6 +7,7 @@ import rehypeStringify from 'rehype-stringify';
 import rehypeFormat from 'rehype-format';
 import remarkGfm from 'remark-gfm';
 import '../styles/markdownStyle.css';
+import { css } from '@/styled-system/css';
 
 const MarkdownRenderer: FC<{ children: string }> = ({ children }) => {
   const filter = (html: string) => {
@@ -23,7 +24,12 @@ const MarkdownRenderer: FC<{ children: string }> = ({ children }) => {
 
   return (
     <div
-      className="markdown-body"
+      className={[
+        css({
+          flex: 1,
+        }),
+        'markdown-body',
+      ].join(' ')}
       dangerouslySetInnerHTML={{ __html: filter(children) }}
     />
   );

@@ -38,7 +38,6 @@ const PostPage = ({ params }: { params: Param }) => {
       <div
         className={css({
           display: 'flex',
-          flex: '1',
           flexDirection: 'column',
           gap: '4px',
           marginBottom: '32px',
