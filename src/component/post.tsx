@@ -2,6 +2,7 @@ import { FC } from 'react';
 import Link from 'next/link';
 import dayjs from 'dayjs';
 import Image from 'next/image';
+import { css } from '@/styled-system/css';
 
 interface PostProps {
   slug: string;
@@ -19,27 +20,90 @@ const Post: FC<PostProps> = ({
   slug,
 }) => {
   return (
-    <Link href={`/posts/${slug}`} className="max-w-[704px]">
-      <time dateTime={createdAt} className="text-[14px] text-text">
+    <Link
+      href={`/posts/${slug}`}
+      className={css({
+        maxWidth: '704px',
+      })}
+    >
+      <time
+        dateTime={createdAt}
+        className={css({
+          fontSize: '14px',
+          color: 'text',
+        })}
+      >
         {dayjs(createdAt).format('MMMM DD, YYYY')}
       </time>
 
-      <h2 className="mb-[16px] break-words text-title">{title}</h2>
+      <h2
+        className={css({
+          marginBottom: '16px',
+          overflowWrap: 'break-word',
+          color: 'title',
+        })}
+      >
+        {title}
+      </h2>
 
-      <div className="flex flex-col tablet:flex-row gap-[24px]">
-        <p className="flex-1 flex flex-col order-2 tablet:order-1 text-text">
+      <div
+        className={css({
+          display: 'flex',
+          flexDirection: {
+            base: 'column',
+            sm: 'row',
+          },
+          gap: '24px',
+        })}
+      >
+        <p
+          className={css({
+            display: 'flex',
+            flexDirection: 'column',
+            flex: '1 1 0%',
+            order: {
+              base: '2',
+              sm: '1',
+            },
+            color: 'text',
+          })}
+        >
           {summary}
-          <span className="text-[15px] text-accent mt-[4px]">Read More</span>
+          <span
+            className={css({
+              fontSize: '15px',
+              color: 'accent',
+              marginTop: '4px',
+            })}
+          >
+            Read More
+          </span>
         </p>
 
         {/*TODO: alt*/}
         {thumbnail && (
-          <div className="flex-1 relative aspect-[5/3] rounded-lg drop-shadow-lg order-1 tablet:order-2">
+          <div
+            className={css({
+              position: 'relative',
+              flex: '1 1 0%',
+              order: {
+                base: '1',
+                sm: '2',
+              },
+              borderRadius: '0.5rem',
+              filter:
+                'drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1))',
+              aspectRatio: '5/3',
+            })}
+          >
             <Image
               src={`https://images.chaeng.dev/post/${thumbnail}`}
               alt="post example"
               fill={true}
-              className="object-cover rounded-lg"
+              className={css({
+                objectFit: 'cover',
+                borderRadius: '0.5rem',
+              })}
             />
           </div>
         )}

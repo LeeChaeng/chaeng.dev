@@ -2,8 +2,9 @@ import { FC, ReactNode } from 'react';
 import '../styles/globalStyle.css';
 import Script from 'next/script';
 import type { Metadata } from 'next';
-import { Spoqa } from '~/app/font/font';
+import { Spoqa } from '@/src/app/font/font';
 import { Analytics } from '@vercel/analytics/react';
+import { css } from '@/styled-system/css';
 
 const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
@@ -23,10 +24,40 @@ const RootLayout: FC<{ children: ReactNode }> = ({ children }) => {
           gtag('config', 'G-RREC2KXJJT');`}
         </Script>
       </head>
-      <body className="flex flex-col min-h-full relative">
-        <div className="absolute top-0 left-0 w-full h-[300px] bg-gradient-to-b from-topColor to-white" />
+      <body
+        className={css({
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100%',
+          position: 'relative',
+        })}
+      >
+        <div
+          className={css({
+            position: 'absolute',
+            top: '0',
+            left: '0',
+            backgroundImage: 'background-image',
+            backgroundColor: 'white',
+            width: '100%',
+            height: '300px',
+            bgGradient: 'to-b',
+            gradientFrom: 'topColor',
+            gradientTo: 'white',
+          })}
+        />
         {children}
-        <footer className="text-[12px] text-center w-full py-[56px] bg-gradient-to-b from-white to-bottomColor color-text">
+        <footer
+          className={css({
+            fontSize: '12px',
+            textAlign: 'center',
+            width: '100%',
+            paddingY: '56px',
+            bgGradient: 'to-b',
+            gradientFrom: 'white',
+            gradientTo: 'bottomColor',
+          })}
+        >
           © Luna Lee
         </footer>
         <Analytics />
