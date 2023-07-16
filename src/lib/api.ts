@@ -15,8 +15,8 @@ const getPosts = cache(() => {
 
   return posts
     .map((slug) => {
-      const realSlug = slug.replace(/\.md$/, '');
-      const fullPath = join(POSTS_PATH, `${realSlug}.md`);
+      const realSlug = slug.replace(/\.mdx$/, '');
+      const fullPath = join(POSTS_PATH, `${realSlug}.mdx`);
 
       if (!fs.existsSync(fullPath)) {
         return null;
@@ -30,7 +30,7 @@ const getPosts = cache(() => {
     .filter(isNotNull)
     .sort(
       (a, b) =>
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
     );
 });
 
