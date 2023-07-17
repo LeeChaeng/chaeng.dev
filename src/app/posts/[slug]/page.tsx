@@ -2,11 +2,11 @@ import { getPostBySlug, getPosts } from '@/src/lib/api';
 import Link from 'next/link';
 import dayjs from 'dayjs';
 import Image from 'next/image';
-import { MarkdownRenderer } from '@/src/component/markdownRenderer';
 import { GitHubIcon } from '@/src/asset/gitHubIcon';
 import { LinkedInIcon } from '@/src/asset/linkedInIcon';
 import { notFound } from 'next/navigation';
 import { css } from '@/styled-system/css';
+import { MDXRenderer } from '@/src/component/mdxRenderer';
 
 interface Param {
   slug: string;
@@ -59,9 +59,9 @@ const PostPage = ({ params }: { params: Param }) => {
         </span>
       </div>
 
-      {/*TODO: temporally css*/}
-      {/*<div className={"break-all"}>{content}</div>*/}
-      <MarkdownRenderer>{content}</MarkdownRenderer>
+      <div className={css({ flex: '1', wordWrap: 'break-word' })}>
+        <MDXRenderer>{content}</MDXRenderer>
+      </div>
 
       <div
         className={css({
