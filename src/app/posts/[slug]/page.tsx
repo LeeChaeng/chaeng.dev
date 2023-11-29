@@ -2,11 +2,10 @@ import { getPostBySlug, getPosts } from '@/src/lib/api';
 import Link from 'next/link';
 import dayjs from 'dayjs';
 import Image from 'next/image';
-import { GitHubIcon } from '@/src/asset/gitHubIcon';
-import { LinkedInIcon } from '@/src/asset/linkedInIcon';
 import { notFound } from 'next/navigation';
 import { css } from '@/styled-system/css';
 import { MDXRenderer } from '@/src/component/mdxRenderer';
+import { Profile } from '@/src/component/profile';
 
 interface Param {
   slug: string;
@@ -125,44 +124,7 @@ const PostPage = ({ params }: { params: Param }) => {
           </div>
         </div>
 
-        <div>
-          <h1
-            className={css({
-              fontSize: '24px',
-              color: 'title',
-              paddingBottom: '8px',
-            })}
-          >
-            <Link href="/" passHref>
-              chaeng.dev
-            </Link>
-          </h1>
-          <span
-            className={css({
-              fontSize: '14px',
-              fontWeight: '500',
-              color: 'text',
-              overflowWrap: 'break-word',
-            })}
-          >
-            우당탕탕 프론트엔드 개발자 루나의 블로그
-          </span>
-
-          <div
-            className={css({
-              display: 'flex',
-              gap: '8px',
-              paddingY: '8px',
-            })}
-          >
-            <Link href="https://github.com/leechaeng" passHref>
-              <GitHubIcon />
-            </Link>
-            <Link href="https://www.linkedin.com/in/leechaeng/" passHref>
-              <LinkedInIcon />
-            </Link>
-          </div>
-        </div>
+        <Profile />
       </div>
     </main>
   );

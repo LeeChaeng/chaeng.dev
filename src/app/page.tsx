@@ -1,10 +1,8 @@
 import { getPosts } from '@/src/lib/api';
 import { css } from '@/styled-system/css';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Post } from '@/src/component/post';
-import { GitHubIcon } from '@/src/asset/gitHubIcon';
-import { LinkedInIcon } from '@/src/asset/linkedInIcon';
+import { Profile } from '@/src/component/profile';
 
 const Page = () => {
   const posts = getPosts();
@@ -91,44 +89,7 @@ const Page = () => {
           </div>
         </div>
 
-        <div>
-          <h1
-            className={css({
-              fontSize: '24px',
-              color: 'title',
-              paddingBottom: '8px',
-            })}
-          >
-            <Link href="/" passHref>
-              chaeng.dev
-            </Link>
-          </h1>
-          <span
-            className={css({
-              fontSize: '14px',
-              fontWeight: '400',
-              color: 'text',
-              overflowWrap: 'break-word',
-            })}
-          >
-            우당탕탕 프론트엔드 개발자 루나의 블로그
-          </span>
-
-          <div
-            className={css({
-              display: 'flex',
-              gap: '8px',
-              paddingY: '8px',
-            })}
-          >
-            <Link href="https://github.com/leechaeng" passHref>
-              <GitHubIcon />
-            </Link>
-            <Link href="https://www.linkedin.com/in/leechaeng/" passHref>
-              <LinkedInIcon />
-            </Link>
-          </div>
-        </div>
+        <Profile />
       </div>
       <div
         className={css({
