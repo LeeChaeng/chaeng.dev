@@ -25,6 +25,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# yarn
+/.yarn/install-state.gz
+
 # local env files
 .env*.local
 

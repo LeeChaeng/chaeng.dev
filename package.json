@@ -45,5 +45,6 @@
     "postcss": "^8.4.29",
     "prettier": "^3.0.0",
     "typescript": "5.1.6"
-  }
+  },
+  "packageManager": "yarn@4.9.3"
 }

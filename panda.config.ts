@@ -8,7 +8,7 @@ export default defineConfig({
     './src/app/**/*.{js,jsx,ts,tsx}',
     './src/component/**/*.{js,jsx,ts,tsx}',
   ],
-  hash: isProductionEnv,
+  hash: false,
   minify: isProductionEnv,
   jsxFramework: 'react',
   exclude: [],
