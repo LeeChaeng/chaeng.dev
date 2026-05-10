@@ -3357,7 +3357,7 @@ __metadata:
     remark: "npm:^14.0.3"
     remark-breaks: "npm:^4.0.0"
     remark-gfm: "npm:^4.0.0"
-    remark-parse: "npm:^10.0.2"
+    remark-parse: "npm:^11.0.0"
     remark-rehype: "npm:^10.1.0"
     typescript: "npm:5.1.6"
   languageName: unknown
@@ -9099,7 +9099,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-parse@npm:^10.0.0, remark-parse@npm:^10.0.1, remark-parse@npm:^10.0.2":
+"remark-parse@npm:^10.0.0, remark-parse@npm:^10.0.1":
   version: 10.0.2
   resolution: "remark-parse@npm:10.0.2"
   dependencies:
