@@ -1745,10 +1745,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/mdx@npm:^2.0.0, @types/mdx@npm:^2.0.5":
+"@types/mdx@npm:^2.0.0":
   version: 2.0.5
   resolution: "@types/mdx@npm:2.0.5"
   checksum: 10c0/f46932365a24ad6927dd87678598b839fa64ef8c9d0714b45a0185ac52427b374899ba96022f97330b27aca3572a6815f844cf345a50b9c0c483f485c243eda1
+  languageName: node
+  linkType: hard
+
+"@types/mdx@npm:^2.0.13":
+  version: 2.0.13
+  resolution: "@types/mdx@npm:2.0.13"
+  checksum: 10c0/5edf1099505ac568da55f9ae8a93e7e314e8cbc13d3445d0be61b75941226b005e1390d9b95caecf5dcb00c9d1bab2f1f60f6ff9876dc091a48b547495007720
   languageName: node
   linkType: hard
 
@@ -3331,7 +3338,7 @@ __metadata:
     "@mdx-js/react": "npm:^2.3.0"
     "@next/mdx": "npm:^13.4.12"
     "@pandacss/dev": "npm:^0.15.0"
-    "@types/mdx": "npm:^2.0.5"
+    "@types/mdx": "npm:^2.0.13"
     "@types/node": "npm:20.6.2"
     "@types/react": "npm:18.2.20"
     "@types/react-dom": "npm:18.2.7"
